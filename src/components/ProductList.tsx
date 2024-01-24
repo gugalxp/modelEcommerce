@@ -6,7 +6,7 @@ import { addToCart, getProductsFromStorage, setProductsCartToStorage } from '../
 import ProductRating from './ProductRating';
 import { useCart } from '../context/CartContext';
 import { ShoppingOutlined } from '@ant-design/icons';
-import Filter from './Filter'; // Certifique-se de importar o componente FilterComponent
+import Filter from './Filter';
 
 const ProductList: React.FC = () => {
   const initialProductsList: Product[] = getProductsFromStorage();
@@ -33,18 +33,39 @@ const ProductList: React.FC = () => {
     }
   };
 
-  const handleFilter = (filters: { name?: string; price?: number }) => {
-    const { name, price } = filters;
+  const handleFilter = (filters: { name?: string; price?: number; date?: string | undefined }) => {
+    const { name, price, date } = filters;
 
     const filteredList = initialProductsList.filter((product) => {
-      const nameCondition = name ? product.name.toLowerCase().includes(name.toLowerCase()) : true;
-      const priceCondition = price !== undefined ? product.price === price : true;
+      const productName = product.name.trim().toLowerCase();
+      const nameFilter = name ? productName.startsWith(name.toLowerCase()) : true;
 
-      return nameCondition && priceCondition;
+      const productPrice = product.price;
+      const priceFilter = price ? productPrice <= price : true;
+
+      // Se uma data (date) for fornecida
+      if (date) {
+        const productDate = new Date(product.dateAdded);
+
+        // Obtendo a data atual
+        const currentDate = new Date();
+
+        // Verificando se a data do produto está no período desde a date até hoje
+        const dateFilter = productDate >= new Date(date) && productDate <= currentDate;
+
+        return nameFilter && priceFilter && dateFilter;
+      }
+
+      return nameFilter && priceFilter;
     });
+
+    if (name?.length === 1) {
+      return setFilteredProducts(initialProductsList);
+    }
 
     setFilteredProducts(filteredList);
   };
+
 
   return (
     <>

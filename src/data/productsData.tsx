@@ -6,7 +6,7 @@ const randomDate = (start: Date, end: Date): Date => {
 
 const currentDate = new Date();
 
-export const products = [
+const products = [
   {
     id: uuidv4(),
     name: 'PlayStation 5',
@@ -14,7 +14,7 @@ export const products = [
     price: 4500,
     oldPrice: 5000,
     image: 'https://images.kabum.com.br/produtos/fotos/115737/console-sony-playstation-5_1603798015_g.jpg',
-    dateAdded: randomDate(new Date(currentDate.getTime() - 30 * 24 * 60 * 60 * 1000), currentDate),
+    dateAdded: randomDate(new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000), currentDate),
     quantity: 1,
   },
   {
@@ -34,7 +34,7 @@ export const products = [
     price: 4500,
     oldPrice: 5000,
     image: 'https://images.kabum.com.br/produtos/fotos/128560/console-microsoft-xbox-series-x-1tb-preto-rrt-00006_1601067024_g.jpg',
-    dateAdded: randomDate(new Date(currentDate.getTime() - 30 * 24 * 60 * 60 * 1000), currentDate),
+    dateAdded: randomDate(new Date(currentDate.getTime() - 3 * 30 * 24 * 60 * 60 * 1000), currentDate),
     quantity: 1,
   },
   {
@@ -44,7 +44,7 @@ export const products = [
     price: 4800,
     oldPrice: 5200,
     image: 'https://sipolatti.vteximg.com.br/arquivos/ids/174518-550-570/SAMSUNG-GALAXY-S20-PLUS-Cloud-Blue.jpg?v=637227295037370000',
-    dateAdded: randomDate(new Date(currentDate.getTime() - 30 * 24 * 60 * 60 * 1000), currentDate),
+    dateAdded: randomDate(new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000), currentDate),
     quantity: 1,
   },
   {
@@ -64,9 +64,12 @@ export const products = [
     price: 3800,
     oldPrice: 4000,
     image: 'https://www.techinn.com/f/13782/137821889/apple-iphone-12-mini-4gb-128gb-5.4.jpg',
-    dateAdded: randomDate(new Date(currentDate.getTime() - 30 * 24 * 60 * 60 * 1000), currentDate),
+    dateAdded: randomDate(new Date(currentDate.getTime() - 3 * 30 * 24 * 60 * 60 * 1000), currentDate),
     quantity: 1,
   }
-];
+].map(product => ({
+  ...product,
+  dateAdded: product.dateAdded.toISOString().split('T')[0],
+}));
 
-
+export { products };

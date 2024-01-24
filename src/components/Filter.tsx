@@ -1,4 +1,3 @@
-// Filter.tsx
 import React, { useState } from 'react';
 import { Input, Button, Space, Row, Col, Checkbox, Dropdown, Menu } from 'antd';
 import { FilterOutlined, DownOutlined } from '@ant-design/icons';
@@ -9,35 +8,11 @@ interface FilterProps {
 
 const Filter: React.FC<FilterProps> = ({ onFilter }) => {
   const [nameFilter, setNameFilter] = useState<string>('');
-  const [priceFilter, setPriceFilter] = useState<number | undefined>(undefined);
-  const [dateFilter, setDateFilter] = useState<string | undefined>(undefined);
-  const [rangeValue, setRangeValue] = useState<number>(0);
+  const [priceFilter, setPriceFilter] = useState<number>(0);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-
-  const data: string[] = ["Item C", "Item A", "Item B"];
+  const [dateFilter, setDateFilter] = useState<string | undefined>(undefined);
 
   const handleFilter = () => {
-    let filtered = [...data];
-
-    if (selectedFilters.includes('name') && nameFilter) {
-      filtered = filtered.filter((item) => {
-        return item.toLowerCase().includes(nameFilter.toLowerCase());
-      });
-    }
-
-    if (selectedFilters.includes('price') && rangeValue > 0) {
-      filtered = filtered.filter((item) => {
-        const itemPrice = parseFloat(item);
-        return itemPrice >= rangeValue;
-      });
-    }
-
-    if (selectedFilters.includes('date') && dateFilter) {
-      filtered = filtered.filter((item) => {
-        return item.includes(dateFilter || '');
-      });
-    }
-
     onFilter({ name: nameFilter, price: priceFilter, date: dateFilter });
   };
 
@@ -82,6 +57,7 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
           </Dropdown>
           {selectedFilters.includes('name') && (
             <Input
+              onInput={handleFilter}
               placeholder="Filtrar por nome"
               value={nameFilter}
               onChange={(e) => setNameFilter(e.target.value)}
@@ -92,20 +68,18 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
               <Input
                 type="range"
                 min={0}
-                max={100}
+                max={10000}
                 step={1}
-                value={rangeValue}
-                onChange={(e) => setRangeValue(parseFloat(e.target.value))}
+                value={priceFilter}
+                onChange={(e) => setPriceFilter(parseFloat(e.target.value))}
               />
-              <span>A partir de: R$ {rangeValue}</span>
+              <span>A partir de: R$ {priceFilter}</span>
             </>
           )}
           {selectedFilters.includes('date') && (
             <Input
               type="date"
-              value={dateFilter}
-              onChange={(e) => setDateFilter(e.target.value)}
-            />
+              onChange={(e) => setDateFilter(e.target.value)} />
           )}
           {selectedFilters.length > 0 && (
             <Button icon={<FilterOutlined />} onClick={handleFilter}>

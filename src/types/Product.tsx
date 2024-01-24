@@ -7,6 +7,7 @@ interface Product {
     image: string;
     oldPrice: number;
     quantity: number;
+    dateAdded: string;
   }
   
   export default Product;
