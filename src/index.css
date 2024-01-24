@@ -1,13 +1,252 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+html,
+body,
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.ant-card-body {
+  padding: 0 !important;
+}
+
+p {
+  color: #000000;
+  text-overflow: ellipsis;
+}
+
+.ant-carousel .slick-slide img {
+  display: initial;
+}
+
+.ant-carousel .slick-dots li button::after {
+  position: absolute;
+  inset: -6px;
+  content: "";
+  margin-left: 5px;
+  background-color: #020024;
+}
+
+@media (min-width: 768px) {
+  .borderBanner {
+    border: 1px solid #b8b9ba;
+  }
+
+  .cart-item {
+    width: 100%;
+  }
+}
+
+.header {
+  padding: 2em;
+  margin-bottom: 2em;
+  color: #fff;
+  background-color: #020024;
+  text-align: center;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-card {
+  padding: 1em;
+  margin: 16px;
+  max-width: 189px;
+  max-height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.product-card__image-container {
+  height: 149px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card__image {
+  max-width: 90%;
+}
+
+.product-card__name {
+  height: 50px;
+}
+
+.product-card__name-text {
+  padding: 10px;
+  border-bottom: 1px solid #b9b5ba;
+}
+
+.product-card__description {
+  height: 65px;
+}
+
+.product-card__description-text {
+  color: #5a555c;
+}
+
+.product-card__price {
+  height: 46px;
+}
+
+.product-card__price-text {
+  font-weight: bold;
+  color: #228b22;
+}
+
+.product-card__old-price-text {
+  font-weight: 100;
+  color: #5a555c;
+}
+
+.product-card__installments {
+  color: #5a555c;
+}
+
+.product-card__installments-text {
+  color: #5a555c;
+}
+
+.product-card__rating {
+  margin-top: 8px;
+}
+
+.product-card__add-to-cart-button {
+  height: 50px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.product-card__add-button {
+  width: 100%;
+  background: #228b22;
+  font-weight: 700;
+  font-size: 12px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+/* CustomSidebar.css */
+.custom-sidebar {
+  position: fixed;
+  z-index: 1001;
+  right: 0;
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background: #020024;
+  padding: 20px;
+  color: #fff;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra à esquerda */
+}
+
+.custom-sidebar.collapsed {
+  transform: translateX(100%);
+}
+
+.sidebar-header {
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b9b5ba37;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-title {
+  font-size: 1.1rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: #fff;
+  color: #5a555c;
+  padding: .6em;
+  border-radius: 5px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  opacity: 0; 
+  pointer-events: none; 
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto; 
+}
+
+.cart-empty {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-empty p {
+  color: #fff;
+}
+
+.cart-total {
+  font-weight: bolder;
+  color: #fff;
+  padding: .9em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+}
+
+.delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 2em;
+}
+
+.checkout-button {
+  width: 100%;
+  height: 3em;
+  color: #fff;
+  background-color: #228b22;
+  font-weight: bold;
+  font-size: 13px;
+  border: none;
+  position: static;
+}
+
+.ant-divider-horizontal {
+  margin: 1em;
+}
+
+.ant-divider { 
+  border-block-start: 0;
 }
