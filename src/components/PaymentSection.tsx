@@ -62,11 +62,6 @@ const PaymentSection: React.FC = () => {
               </Form.Item>
             </Col>
           </Row>
-          <Form.Item>
-            <Button type="primary" htmlType="submit" onClick={() => {}}>
-              Finalizar Compra
-            </Button>
-          </Form.Item>
         </Form>
       </div>
     );

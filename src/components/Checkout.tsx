@@ -2,7 +2,7 @@ import React from 'react';
 import { Steps, Button, message, Form, Input, Select, Row, Col, Typography, Divider, Table, DatePicker } from 'antd';
 import { ShoppingCartOutlined, UserOutlined, SolutionOutlined } from '@ant-design/icons';
 import { useCart } from '../context/CartContext';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const { Step } = Steps;
 const { Option } = Select;
@@ -11,7 +11,8 @@ const { Title, Text } = Typography;
 const Checkout: React.FC = () => {
   const [currentStep, setCurrentStep] = React.useState<number>(0);
   const [form] = Form.useForm();
-  const { products, getProductsCart, clearCart } = useCart();
+  const { products, clearCart } = useCart();
+  const navigate = useNavigate();
 
   const nextStep = () => {
     form.validateFields().then(() => {
@@ -25,19 +26,19 @@ const Checkout: React.FC = () => {
     setCurrentStep(currentStep - 1);
   };
 
-  const handleFinish = () => {
+  const handleFinish = async () => {
+    setTimeout(() => {
+      const isValid = form.getFieldsError().every((field) => !field.errors.length);
+      console.log('Form isValid:', isValid);
 
-    const isValid = form.getFieldsError().every((field) => {
-      return !field.errors.length
-    });
-
-    if (isValid) {
-      message.success('Compra Finalizada!');
-      clearCart();
-      getProductsCart();
-    } else {
-      message.error('Por favor, preencha todos os campos corretamente.');
-    }
+      if (isValid) {
+        message.success('Compra Finalizada!');
+        clearCart();
+        navigate("/")
+      } else {
+        message.error('Por favor, preencha todos os campos corretamente.');
+      }
+    }, 2000);
   };
 
   const columns = [
@@ -186,11 +187,9 @@ const Checkout: React.FC = () => {
             </Col>
           </Row>
           <Form.Item>
-            <Link to="/">
-              <Button type="primary" htmlType="submit" onClick={handleFinish}>
-                Finalizar Compra
-              </Button>
-            </Link>
+            <Button type="primary" htmlType="submit" onClick={handleFinish}>
+              Finalizar Compra
+            </Button>
           </Form.Item>
         </Form>
       </div>
@@ -250,7 +249,7 @@ const Checkout: React.FC = () => {
         )}
         {currentStep === 0 && (
           <Link to="/">
-            <Button type="primary" style={{ marginRight: '.51em', background: '#228b22'}}>
+            <Button type="primary" style={{ marginRight: '.51em', background: '#228b22' }}>
               Voltar ao home
             </Button>
           </Link>
