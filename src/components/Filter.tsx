@@ -3,17 +3,18 @@ import { Input, Button, Space, Row, Col, Checkbox, Dropdown, Menu } from 'antd';
 import { FilterOutlined, DownOutlined } from '@ant-design/icons';
 
 interface FilterProps {
-  onFilter: (filters: { name?: string; price?: number; date?: string }) => void;
+  onFilter: (filters: { name?: string; price?: number; startDate?: string; endDate?: string }) => void;
 }
 
 const Filter: React.FC<FilterProps> = ({ onFilter }) => {
   const [nameFilter, setNameFilter] = useState<string>('');
   const [priceFilter, setPriceFilter] = useState<number>(0);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  const [dateFilter, setDateFilter] = useState<string | undefined>(undefined);
+  const [startDateFilter, setStartDateFilter] = useState<string | undefined>(undefined);
+  const [endDateFilter, setEndDateFilter] = useState<string | undefined>(undefined);
 
   const handleFilter = () => {
-    onFilter({ name: nameFilter, price: priceFilter, date: dateFilter });
+    onFilter({ name: nameFilter, price: priceFilter, startDate: startDateFilter, endDate: endDateFilter });
   };
 
   const handleMenuClick = (value: string) => {
@@ -77,9 +78,14 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
             </>
           )}
           {selectedFilters.includes('date') && (
+            <>
             <Input
               type="date"
-              onChange={(e) => setDateFilter(e.target.value)} />
+              onChange={(e) => setStartDateFilter(e.target.value)} />
+              <Input
+              type="date"
+              onChange={(e) => setEndDateFilter(e.target.value)} />
+            </>
           )}
           {selectedFilters.length > 0 && (
             <Button icon={<FilterOutlined />} onClick={handleFilter}>

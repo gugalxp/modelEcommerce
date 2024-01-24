@@ -33,39 +33,35 @@ const ProductList: React.FC = () => {
     }
   };
 
-  const handleFilter = (filters: { name?: string; price?: number; date?: string | undefined }) => {
-    const { name, price, date } = filters;
-
+  const handleFilter = (filters: { name?: string; price?: number; startDate?: string | undefined; endDate?: string | undefined }) => {
+    const { name, price, startDate, endDate } = filters;
+    
+    console.log(startDate, endDate);
+    
     const filteredList = initialProductsList.filter((product) => {
       const productName = product.name.trim().toLowerCase();
       const nameFilter = name ? productName.startsWith(name.toLowerCase()) : true;
-
+  
       const productPrice = product.price;
       const priceFilter = price ? productPrice <= price : true;
-
-      // Se uma data (date) for fornecida
-      if (date) {
+  
+      if (startDate && endDate) {
         const productDate = new Date(product.dateAdded);
-
-        // Obtendo a data atual
-        const currentDate = new Date();
-
-        // Verificando se a data do produto está no período desde a date até hoje
-        const dateFilter = productDate >= new Date(date) && productDate <= currentDate;
-
-        return nameFilter && priceFilter && dateFilter;
+        const startFilter = productDate >= new Date(startDate);
+        const endFilter = productDate <= new Date(endDate);
+  
+        return nameFilter && priceFilter && startFilter && endFilter;
       }
-
+  
       return nameFilter && priceFilter;
     });
-
+  
     if (name?.length === 1) {
       return setFilteredProducts(initialProductsList);
     }
-
+  
     setFilteredProducts(filteredList);
   };
-
 
   return (
     <>
