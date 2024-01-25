@@ -140,7 +140,7 @@ const Checkout: React.FC = () => {
           <Row gutter={[16, 16]}>
             <Col span={12}>
               <Form.Item
-                label="Número do Cartão"
+                label="Número Cartão"
                 name="cardNumber"
                 rules={[
                   { required: true, message: 'Por favor, insira o número do cartão.' },
@@ -166,7 +166,8 @@ const Checkout: React.FC = () => {
           <Row gutter={[16, 16]}>
             <Col span={12}>
               <Form.Item
-                label="Código de Segurança (CVV)"
+              style={{ fontSize: '13px' }}
+                label="CVV"
                 name="cvv"
                 rules={[
                   { required: true, message: 'Por favor, insira o código de segurança (CVV).' },
@@ -200,18 +201,18 @@ const Checkout: React.FC = () => {
     {
       title: 'Carrinho',
       content: (
-        <>
+        <div>
           <Table columns={columns} dataSource={products} pagination={false} />
           <Divider />
-          <Row gutter={[16, 16]}>
+          <Row style={{ background: '#000', color: '#fff', padding: '1em', borderRadius: '8px' }} gutter={[16, 16]}>
             <Col span={12}>
-              <Text strong>Total:</Text>
+              <Text style={{ color: '#fff' }} strong>Total:</Text>
             </Col>
             <Col span={12} style={{ textAlign: 'right' }}>
-              <Text strong>$ {products.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</Text>
+              <Text style={{ color: '#fff' }} strong>$ {products.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</Text>
             </Col>
           </Row>
-        </>
+        </div>
       ),
     },
     {
@@ -225,7 +226,7 @@ const Checkout: React.FC = () => {
   ];
 
   return (
-    <div style={{ maxWidth: '800px', margin: 'auto' }}>
+    <div className='container_checkout_carrinho'>
 
       <Steps current={currentStep} size="small">
         <Step title="Carrinho" icon={<ShoppingCartOutlined />} />

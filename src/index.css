@@ -51,7 +51,6 @@ p {
     font-size: 18px;
   }
 
-  /* CustomSidebar.css */
   .custom-sidebar {
     position: fixed;
     z-index: 1001;
@@ -64,11 +63,20 @@ p {
     color: #fff;
     transition: transform 0.3s ease-in-out;
     box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
-    /* Adiciona uma sombra à esquerda */
+  }
+  
+  .container_checkout_carrinho {
+    margin: 2em;
+    max-width: 800px;
   }
 }
 
 @media (min-width: 768px) {
+  .container_checkout_carrinho{
+    margin: auto;
+    max-width: 800px;
+  }
+
   .borderBanner {
     border: 1px solid #b8b9ba;
   }
