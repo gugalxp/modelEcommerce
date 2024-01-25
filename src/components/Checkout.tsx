@@ -11,7 +11,7 @@ const { Title, Text } = Typography;
 const Checkout: React.FC = () => {
   const [currentStep, setCurrentStep] = React.useState<number>(0);
   const [form] = Form.useForm();
-  const { products, clearCart } = useCart();
+  const { products, clearCart, getProductsCart } = useCart();
   const navigate = useNavigate();
 
   const nextStep = () => {
@@ -34,6 +34,7 @@ const Checkout: React.FC = () => {
       if (isValid) {
         message.success('Compra Finalizada!');
         clearCart();
+        getProductsCart();
         navigate("/")
       } else {
         message.error('Por favor, preencha todos os campos corretamente.');
