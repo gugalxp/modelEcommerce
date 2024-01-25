@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Button, Space, Badge } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
-import Sidebar from './Sidebar'; // Importe o componente Sidebar
+import Sidebar from './Sidebar'; 
 import { useCart } from '../context/CartContext';
 import Product from '../types/Product';
 

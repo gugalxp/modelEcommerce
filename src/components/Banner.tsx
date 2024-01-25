@@ -42,11 +42,11 @@ const Banner: React.FC = () => {
                 src={product.image}
                 style={{ objectFit: 'cover' }}
               />
-                <div data-aos="flip-down" style={{ marginLeft: '1em', display: 'flex', justifyContent: 'left', flexDirection: 'column', alignItems: 'flex-start' }}>
-                  <h3 style={{ color: '#fff', background: product.name === "PlayStation 5" ? 'green' : '', fontWeight: 900, fontSize: '13px', padding: '.2em .7em', borderRadius: '5px' }}>{product.name === "PlayStation 5" ? 'Mais vendido' : ''}</h3>
-                  <h3 style={{ color: '#020024', fontWeight: 900, fontSize: '35px' }}>{product.name}</h3>
-                  <h3 style={{ color: 'green', fontSize: '20px', marginTop: '.5em', }}>R$ {product.price}</h3>
-                </div>
+              <div data-aos="flip-down" style={{ marginLeft: '1em', display: 'flex', justifyContent: 'left', flexDirection: 'column', alignItems: 'flex-start' }}>
+                <h3 style={{ color: '#fff', background: product.name === "PlayStation 5" ? 'green' : '', fontWeight: 900, fontSize: '13px', padding: '.2em .7em', borderRadius: '5px' }}>{product.name === "PlayStation 5" ? 'Mais vendido' : ''}</h3>
+                <h3 style={{ color: '#020024', fontWeight: 900, fontSize: '35px' }}>{product.name}</h3>
+                <h3 style={{ color: 'green', fontSize: '20px', marginTop: '.5em', }}>R$ {product.price}</h3>
+              </div>
             </div>
             <div
               style={{

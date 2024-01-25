@@ -46,7 +46,6 @@ export const updateCartItemQuantityInStorage = (itemId: string, newQuantity: num
     cartItems[updatedCartItemIndex].quantity = newQuantity;
 
     setProductsCartToStorage(cartItems);
-    console.log(`Quantidade do item no carrinho com ID ${itemId} foi atualizada para ${newQuantity}.`);
   } else {
     console.error(`Item no carrinho com ID ${itemId} não encontrado no localStorage.`);
   }

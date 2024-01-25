@@ -1,4 +1,3 @@
-// src/types/Product.ts
 interface Product {
     id: string;
     name: string;

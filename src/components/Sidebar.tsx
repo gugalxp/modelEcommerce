@@ -100,8 +100,8 @@ const Sidebar: React.FC<SidebarProps> = ({ setSidebarVisible, sidebarVisible }) 
               <Button
                 className="checkout-button"
                 style={{
-                  boxShadow: '0 0 10px #3498db', // Sombra inicial (azul)
-                  animation: '0.5s infinite alternate', // Alterne entre as sombras em meio segundo
+                  boxShadow: '0 0 10px #3498db', 
+                  animation: '0.5s infinite alternate', 
                 }}
               >
                 Completar compra

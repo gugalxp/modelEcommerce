@@ -1,16 +1,14 @@
-// ProductList.tsx
 import React, { useState } from 'react';
 import { Button, Card, Modal, message } from 'antd';
 import Product from '../types/Product';
-import { addToCart, getProductsFromStorage, setProductsCartToStorage } from '../utils/localStorageUtils';
 import ProductRating from './ProductRating';
 import { useCart } from '../context/CartContext';
 import { ShoppingOutlined } from '@ant-design/icons';
 import Filter from './Filter';
 
 const ProductList: React.FC = () => {
-  const initialProductsList: Product[] = getProductsFromStorage();
-  const { products, getProductsCart } = useCart();
+  const { products, getProductsCart, addItemToCart, updateCartAndSaveToStorage, getProducts } = useCart();
+  const initialProductsList: Product[] = getProducts();
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(initialProductsList);
 
   const numberInstallments = 3;
@@ -21,9 +19,9 @@ const ProductList: React.FC = () => {
     if (isItemInCart) {
       message.warning(`${product.name} já está no seu carrinho. Verifique o carrinho para ajustar a quantidade.`);
     } else {
-      addToCart(product);
+      addItemToCart(product);
       const updatedProducts = [...products, product];
-      setProductsCartToStorage(updatedProducts);
+      updateCartAndSaveToStorage(updatedProducts);
       getProductsCart();
 
       Modal.success({
@@ -35,8 +33,6 @@ const ProductList: React.FC = () => {
 
   const handleFilter = (filters: { name?: string; price?: number; startDate?: string | undefined; endDate?: string | undefined }) => {
     const { name, price, startDate, endDate } = filters;
-
-    console.log(startDate, endDate);
 
     const filteredList = initialProductsList.filter((product) => {
       const productName = product.name.trim().toLowerCase();

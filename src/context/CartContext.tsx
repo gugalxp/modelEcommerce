@@ -1,12 +1,22 @@
 import React, { createContext, useContext, ReactNode, useState } from 'react';
 import Product from '../types/Product';
-import { getProductsCartFromStorage, removeFromCart, removeAllItemsCart } from '../utils/localStorageUtils';
+import { 
+  getProductsCartFromStorage, 
+  removeFromCart, 
+  removeAllItemsCart,
+  addToCart, 
+  getProductsFromStorage, 
+  setProductsCartToStorage 
+} from '../utils/localStorageUtils';
 
 interface CartContextProps {
   products: Product[];
   getProductsCart: () => void;
+  getProducts: () => Product[];
   removeItemCart: (id: string) => void;
   clearCart: () => void;
+  addItemToCart: (product: Product) => void;
+  updateCartAndSaveToStorage: (updatedProducts: Product[]) => void;
 }
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
@@ -30,8 +40,29 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     removeAllItemsCart();
   };
 
+  const addItemToCart = (product: Product) => {
+    addToCart(product)
+  };
+
+  const updateCartAndSaveToStorage = (updatedProducts: Product[]) => {
+    setProductsCartToStorage(updatedProducts);
+  };
+
+  const getProducts = () => {
+    return getProductsFromStorage();
+  };
+  
   return (
-    <CartContext.Provider value={{ products, getProductsCart, removeItemCart, clearCart }}>
+    <CartContext.Provider 
+    value={{ 
+        products,
+        getProductsCart, 
+        removeItemCart, 
+        clearCart, 
+        addItemToCart, 
+        updateCartAndSaveToStorage,
+        getProducts
+      }}>
       {children}
     </CartContext.Provider>
   );

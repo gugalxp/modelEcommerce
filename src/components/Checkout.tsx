@@ -29,7 +29,6 @@ const Checkout: React.FC = () => {
   const handleFinish = async () => {
     setTimeout(() => {
       const isValid = form.getFieldsError().every((field) => !field.errors.length);
-      console.log('Form isValid:', isValid);
 
       if (isValid) {
         message.success('Compra Finalizada!');
@@ -167,7 +166,7 @@ const Checkout: React.FC = () => {
           <Row gutter={[16, 16]}>
             <Col span={12}>
               <Form.Item
-              style={{ fontSize: '13px' }}
+                style={{ fontSize: '13px' }}
                 label="CVV"
                 name="cvv"
                 rules={[

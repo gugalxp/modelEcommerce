@@ -79,12 +79,12 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
           )}
           {selectedFilters.includes('date') && (
             <>
-            <Input
-              type="date"
-              onChange={(e) => setStartDateFilter(e.target.value)} />
               <Input
-              type="date"
-              onChange={(e) => setEndDateFilter(e.target.value)} />
+                type="date"
+                onChange={(e) => setStartDateFilter(e.target.value)} />
+              <Input
+                type="date"
+                onChange={(e) => setEndDateFilter(e.target.value)} />
             </>
           )}
           {selectedFilters.length > 0 && (
