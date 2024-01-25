@@ -48,9 +48,9 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
   );
 
   return (
-    <Row justify="center" style={{ marginBottom: '20px' }}>
+    <Row justify="center">
       <Col span={100}>
-        <Space>
+        <Space style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '1em' }}>
           <Dropdown overlay={menu} trigger={['click']}>
             <Button>
               Filtros <DownOutlined />

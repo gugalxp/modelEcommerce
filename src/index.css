@@ -64,15 +64,19 @@ p {
     transition: transform 0.3s ease-in-out;
     box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
   }
-  
+
   .container_checkout_carrinho {
     margin: 2em;
     max-width: 800px;
   }
+
+  .ant-space {
+    display: initial;
+  }
 }
 
 @media (min-width: 768px) {
-  .container_checkout_carrinho{
+  .container_checkout_carrinho {
     margin: auto;
     max-width: 800px;
   }
