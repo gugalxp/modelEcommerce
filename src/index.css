@@ -30,6 +30,44 @@ p {
   background-color: #020024;
 }
 
+@media (max-width: 767px) {
+  .product-card {
+    padding: 1em;
+    margin: 100px 16px;
+    max-width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+
+  .product-card__image {
+    width: 55%;
+    margin-bottom: 80px;
+  }
+
+  .product-card__add-button {
+    width: 100%;
+    height: 3.5em;
+    font-size: 18px;
+  }
+
+  /* CustomSidebar.css */
+  .custom-sidebar {
+    position: fixed;
+    z-index: 1001;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #020024;
+    padding: 20px;
+    color: #fff;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+    /* Adiciona uma sombra à esquerda */
+  }
+}
+
 @media (min-width: 768px) {
   .borderBanner {
     border: 1px solid #b8b9ba;
@@ -37,6 +75,30 @@ p {
 
   .cart-item {
     width: 100%;
+  }
+
+  .product-card {
+    padding: 1em;
+    margin: 16px;
+    max-width: 189px;
+    max-height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+
+  .custom-sidebar {
+    position: fixed;
+    z-index: 1001;
+    right: 0;
+    top: 0;
+    width: 400px;
+    height: 100vh;
+    background: #020024;
+    padding: 20px;
+    color: #fff;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+    /* Adiciona uma sombra à esquerda */
   }
 }
 
@@ -52,15 +114,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.product-card {
-  padding: 1em;
-  margin: 16px;
-  max-width: 189px;
-  max-height: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: none;
 }
 
 .product-card__image-container {
@@ -135,21 +188,6 @@ p {
   padding: 1em;
 }
 
-/* CustomSidebar.css */
-.custom-sidebar {
-  position: fixed;
-  z-index: 1001;
-  right: 0;
-  top: 0;
-  width: 400px;
-  height: 100vh;
-  background: #020024;
-  padding: 20px;
-  color: #fff;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra à esquerda */
-}
-
 .custom-sidebar.collapsed {
   transform: translateX(100%);
 }
@@ -191,14 +229,14 @@ p {
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  opacity: 0; 
-  pointer-events: none; 
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease-in-out;
 }
 
 .overlay.active {
   opacity: 1;
-  pointer-events: auto; 
+  pointer-events: auto;
 }
 
 .cart-empty {
@@ -247,6 +285,6 @@ p {
   margin: 1em;
 }
 
-.ant-divider { 
+.ant-divider {
   border-block-start: 0;
 }

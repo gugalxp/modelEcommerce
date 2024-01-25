@@ -6,8 +6,8 @@ const { Footer: AntdFooter } = Layout;
 
 const Footer: React.FC = () => {
   return (
-    <AntdFooter style={{ backgroundColor: '#020024', color: '#fff', textAlign: 'center', height: '10em' }}>
-      <Row gutter={[16, 16]} style={{ display: 'flex', justifyContent: 'center'}}>
+    <AntdFooter style={{ backgroundColor: '#020024', color: '#fff', textAlign: 'center', height: 'auto', padding: '1em' }}>
+      <Row gutter={[16, 16]} style={{ display: 'flex', justifyContent: 'center' }}>
         <Col xs={24} sm={12} md={8} lg={6}>
           <MailOutlined /> exemplo@email.com
         </Col>
@@ -17,9 +17,7 @@ const Footer: React.FC = () => {
         <Col xs={24} sm={12} md={8} lg={6}>
           <EnvironmentOutlined /> Endereço, Cidade, Estado, CEP
         </Col>
-      </Row>
-      <Row>
-        <Col span={24} style={{ marginTop: '1em'}}>
+        <Col span={24} style={{ marginTop: '1em' }}>
           <p style={{ marginTop: '16px', color: '#fff' }}>Direitos Reservados © {new Date().getFullYear()} - Seu Nome ou Nome da Empresa</p>
         </Col>
       </Row>
