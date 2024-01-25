@@ -51,7 +51,7 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
     <Row justify="center">
       <Col span={100}>
         <Space style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '1em' }}>
-          <Dropdown overlay={menu} trigger={['click']}>
+          <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
             <Button>
               Filtros <DownOutlined />
             </Button>
