@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, Modal, message } from 'antd';
+import { Button, Card, Empty, Modal, message } from 'antd';
 import Product from '../types/Product';
 import ProductRating from './ProductRating';
 import { useCart } from '../context/CartContext';
@@ -70,7 +70,7 @@ const ProductList: React.FC = () => {
       </div>
       <Filter onFilter={handleFilter} />
       <div className="product-list" data-aos="fade-up" data-aos-duration="1700">
-        {filteredProducts.map((product) => (
+        {filteredProducts && filteredProducts.map((product) => (
           <Card key={product.id} className="product-card ">
             <div className="product-card__image-container">
               <img src={product.image} alt={product.name} className="product-card__image" />
@@ -109,6 +109,13 @@ const ProductList: React.FC = () => {
             </div>
           </Card>
         ))}
+
+        {!filteredProducts.length && (
+          <div>
+            <Empty description="Nenhum produto encontrado" image={Empty.PRESENTED_IMAGE_SIMPLE} />
+          </div>
+        )}
+
       </div>
     </>
   );
