@@ -3,6 +3,7 @@ import { Steps, Button, message, Form, Input, Select, Row, Col, Typography, Divi
 import { ShoppingCartOutlined, UserOutlined, SolutionOutlined } from '@ant-design/icons';
 import { useCart } from '../context/CartContext';
 import { useNavigate, Link } from 'react-router-dom';
+import './css/checkout.css';
 
 const { Step } = Steps;
 const { Option } = Select;
@@ -166,9 +167,9 @@ const Checkout: React.FC = () => {
           <Row gutter={[16, 16]}>
             <Col span={12}>
               <Form.Item
-                style={{ fontSize: '13px' }}
                 label="CVV"
                 name="cvv"
+                className='input-checkout-cvv'
                 rules={[
                   { required: true, message: 'Por favor, insira o código de segurança (CVV).' },
                   { pattern: /^\d{3,4}$/, message: 'O CVV deve ter 3 ou 4 dígitos.' },
@@ -204,12 +205,12 @@ const Checkout: React.FC = () => {
         <div>
           <Table columns={columns} dataSource={products} pagination={false} />
           <Divider />
-          <Row style={{ background: '#000', color: '#fff', padding: '1em', borderRadius: '8px' }} gutter={[16, 16]}>
+          <Row className='container-checkout-value-total' gutter={[16, 16]}>
             <Col span={12}>
-              <Text style={{ color: '#fff' }} strong>Total:</Text>
+              <Text strong>Total:</Text>
             </Col>
             <Col span={12} style={{ textAlign: 'right' }}>
-              <Text style={{ color: '#fff' }} strong>$ {products.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</Text>
+              <Text className='container-checkout-value-total-text' strong>$ {products.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</Text>
             </Col>
           </Row>
         </div>
@@ -234,7 +235,7 @@ const Checkout: React.FC = () => {
         <Step title="Pagamento" icon={<SolutionOutlined />} />
       </Steps>
 
-      <div className="steps-content" style={{ marginTop: '24px', marginBottom: '24px' }}>
+      <div className="steps-content">
         {currentStep === steps.length - 1 ? (
           renderPaymentForm()
         ) : (
@@ -242,9 +243,9 @@ const Checkout: React.FC = () => {
         )}
       </div>
 
-      <div className="steps-action" style={{ textAlign: 'center' }}>
+      <div className="steps-action">
         {currentStep > 0 && (
-          <Button style={{ margin: '0 8px' }} onClick={prevStep}>
+          <Button className='steps-action-button' onClick={prevStep}>
             Voltar
           </Button>
         )}

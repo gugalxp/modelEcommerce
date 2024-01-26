@@ -1,0 +1,27 @@
+.input-checkout-cvv {
+    font-size: 13px;
+}
+
+.container-checkout-value-total {
+    background: #000;
+    color: #fff; 
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.container-checkout-value-total-text {
+   color: #fff;
+}
+
+.steps-content {
+    margin-top: 24px; 
+    margin-bottom: 24px;
+}
+
+.steps-action {
+    text-align: center;
+}
+
+.steps-action-button {
+    margin: 0 8px;
+}

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Button, Space, Badge } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
-import Sidebar from './Sidebar'; 
+import Sidebar from './Sidebar';
 import { useCart } from '../context/CartContext';
 import Product from '../types/Product';
+import './css/navbar.css';
 
 const { Header } = Layout;
 
@@ -52,13 +53,7 @@ const Navbar: React.FC = () => {
         }}
       >
         <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: '5px 0px',
-          }}
+          className='container-content-navbar'
         >
           <div style={{ fontSize: '1.5rem', fontWeight: 800, color: scrolling ? '#fff' : '#242424' }}>GNA</div>
           <Space>
@@ -68,7 +63,7 @@ const Navbar: React.FC = () => {
           </Space>
         </div>
       </Header>
-      {sidebarVisible && <Sidebar setSidebarVisible={setSidebarVisible} sidebarVisible={sidebarVisible} />} 
+      {sidebarVisible && <Sidebar setSidebarVisible={setSidebarVisible} sidebarVisible={sidebarVisible} />}
     </>
   );
 };

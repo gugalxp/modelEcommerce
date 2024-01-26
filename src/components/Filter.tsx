@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Input, Button, Space, Row, Col, Checkbox, Dropdown, Menu } from 'antd';
+import { Input, Button, Space, Row, Col, Checkbox, Dropdown, Menu, Modal, Radio } from 'antd';
 import { FilterOutlined, DownOutlined } from '@ant-design/icons';
+import './css/filter.css';
 
 interface FilterProps {
   onFilter: (filters: { name?: string; price?: number; startDate?: string; endDate?: string }) => void;
@@ -12,9 +13,19 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [startDateFilter, setStartDateFilter] = useState<string | undefined>(undefined);
   const [endDateFilter, setEndDateFilter] = useState<string | undefined>(undefined);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
 
   const handleFilter = () => {
     onFilter({ name: nameFilter, price: priceFilter, startDate: startDateFilter, endDate: endDateFilter });
+    closeModal();
   };
 
   const handleMenuClick = (value: string) => {
@@ -50,15 +61,15 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
   return (
     <Row justify="center">
       <Col span={100}>
-        <Space style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-end', gap: '1em' }}>
+        <Space className='container-filter'>
           <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
-            <Button className='DropDownfilter'>
+            <Button className='container-filter-dropdown-button'>
               Filtros <DownOutlined />
             </Button>
           </Dropdown>
           {selectedFilters.includes('name') && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '.3em' }}>
-              <label style={{ fontSize: '13px' }} htmlFor="nameFilter">Buscar por Nome:</label>
+            <div className='container-filter-input-nome'>
+              <label className='container-filter-input-nome-label' htmlFor="nameFilter">Buscar por Nome:</label>
               <Input
                 id="nameFilter"
                 name="nameFilter"
@@ -70,25 +81,13 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
             </div>
           )}
           {selectedFilters.includes('price') && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '.3em', border: '1px solid #b8b9ba', padding: '.5em', borderRadius: '5px' }}>
-              <label htmlFor="priceFilter">Buscar por Preço:</label>
-              <Input
-                id="priceFilter"
-                name="priceFilter"
-                type="range"
-                min={0}
-                max={10000}
-                step={1}
-                value={priceFilter}
-                onChange={(e) => setPriceFilter(parseFloat(e.target.value))}
-              />
-              <span>A partir de: R$ {priceFilter}</span>
+            <div className='container-filter-input-price'>
+              <Button onClick={openModal}>Configurar Preço</Button>
             </div>
           )}
           {selectedFilters.includes('date') && (
             <>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '.3em' }}>
-
+              <div className='container-filter-input-dateStart'>
                 <label htmlFor="startDateFilter">Data Inicial:</label>
                 <Input
                   id="startDateFilter"
@@ -96,8 +95,8 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
                   type="date"
                   onChange={(e) => setStartDateFilter(e.target.value)} />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '.3em' }}>
 
+              <div className='container-filter-input-endStart' >
                 <label htmlFor="endDateFilter">Data Final:</label>
                 <Input
                   id="endDateFilter"
@@ -108,11 +107,28 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
             </>
           )}
           {selectedFilters.length > 0 && (
-            <Button icon={<FilterOutlined />} onClick={handleFilter}>
+            <Button className='button-apply-filter' icon={<FilterOutlined />} onClick={handleFilter}>
               Aplicar Filtros
             </Button>
           )}
         </Space>
+        <Modal
+          title="Configurar Preço"
+          open={modalVisible}
+          onOk={handleFilter}
+          onCancel={closeModal}
+        >
+          <Input
+            type="range"
+            min={0}
+            max={10000}
+            step={1}
+            value={priceFilter}
+            onChange={(e) => setPriceFilter(parseFloat(e.target.value))}
+          />
+          <span>A partir de: R$ {priceFilter}</span>
+        </Modal>
+
       </Col>
     </Row>
   );

@@ -31,25 +31,6 @@ p {
 }
 
 @media (max-width: 767px) {
-  .product-card {
-    padding: 1em;
-    margin: 100px 16px;
-    max-width: 100%;
-    height: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none;
-  }
-
-  .product-card__image {
-    width: 55%;
-    margin-bottom: 80px;
-  }
-
-  .product-card__add-button {
-    width: 100%;
-    height: 3.5em;
-    font-size: 18px;
-  }
 
   .custom-sidebar {
     position: fixed;
@@ -95,15 +76,6 @@ p {
     width: 100%;
   }
 
-  .product-card {
-    padding: 1em;
-    margin: 16px;
-    max-width: 189px;
-    max-height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none;
-  }
-
   .custom-sidebar {
     position: fixed;
     z-index: 1001;
@@ -125,84 +97,6 @@ p {
   color: #fff;
   background-color: #020024;
   text-align: center;
-}
-
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.product-card__image-container {
-  height: 149px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.product-card__image {
-  max-width: 90%;
-}
-
-.product-card__name {
-  height: 50px;
-}
-
-.product-card__name-text {
-  padding: 10px;
-  border-bottom: 1px solid #b9b5ba;
-}
-
-.product-card__description {
-  height: 65px;
-}
-
-.product-card__description-text {
-  color: #5a555c;
-}
-
-.product-card__price {
-  height: 46px;
-}
-
-.product-card__price-text {
-  font-weight: bold;
-  color: #228b22;
-}
-
-.product-card__old-price-text {
-  font-weight: 100;
-  color: #5a555c;
-}
-
-.product-card__installments {
-  color: #5a555c;
-}
-
-.product-card__installments-text {
-  color: #5a555c;
-}
-
-.product-card__rating {
-  margin-top: 8px;
-}
-
-.product-card__add-to-cart-button {
-  height: 50px;
-  display: flex;
-  align-items: flex-end;
-}
-
-.product-card__add-button {
-  width: 100%;
-  background: #228b22;
-  font-weight: 700;
-  font-size: 12px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1em;
 }
 
 .custom-sidebar.collapsed {

@@ -1,3 +1,15 @@
+## Observação sobre o filtro de datas
+
+Com base no desafio, os dados apresentados nas listagem se trata de um mock.
+As buscas podem ser definidas nos seguintes períodos.
+
+PlayStation 5: 01/01/2021
+Xbox Series S: 01/04/2021
+Xbox Series X: 01/01/2020
+Galaxy S20+: 01/04/2020
+Galaxy S20 FE: 01/07/2019
+iPhone 12 mini: 01/01/2019
+
 ## Instruções para Execução
 
 ### Instalação

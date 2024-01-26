@@ -1,0 +1,46 @@
+.container-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2em;
+}
+
+.container-filter-dropdown-button {
+    color: #fff;
+    background: #020024;
+}
+
+.container-filter-input-nome {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
+
+.container-filter-input-nome-label {
+    font-size: 13px;
+}
+
+.container-filter-input-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    border-radius: 5px;
+}
+
+.container-filter-input-endStart,
+.container-filter-input-dateStart {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
+
+.button-apply-filter {
+    color: #fff;
+    background: #020024;
+}
+
+.ant-space-gap-col-small {
+    column-gap: 8px;
+}

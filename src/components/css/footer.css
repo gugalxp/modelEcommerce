@@ -1,0 +1,21 @@
+.container-footer {
+    background-color: #020024;
+    color: #fff;
+    text-align: center;
+    height: auto;
+    padding: 1em;
+}
+
+.container-footer-content {
+    display: flex;
+    justify-content: center;
+}
+
+.container-footer-content-item {
+    margin-top: 1em;
+}
+
+.container-footer-content-item p {
+    margin-top: 16px; 
+    color: #fff;
+}

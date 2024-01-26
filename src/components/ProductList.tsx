@@ -5,6 +5,7 @@ import ProductRating from './ProductRating';
 import { useCart } from '../context/CartContext';
 import { ShoppingOutlined } from '@ant-design/icons';
 import Filter from './Filter';
+import './css/productList.css'
 
 const ProductList: React.FC = () => {
   const { products, getProductsCart, addItemToCart, updateCartAndSaveToStorage, getProducts } = useCart();
