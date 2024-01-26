@@ -31,6 +31,3 @@ npm start
 
 Este comando inicia a aplicação e a torna acessível conforme configurado no projeto.
 
-## Conclusão
-
-O projeto está pronto para ser executado, e as instruções acima fornecem uma visão geral concisa do processo de instalação e execução. Certifique-se de seguir as etapas descritas para garantir uma execução suave do projeto.
