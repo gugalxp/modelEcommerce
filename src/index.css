@@ -199,3 +199,7 @@ p {
 .ant-divider {
   border-block-start: 0;
 }
+
+.ant-space-gap-col-small {
+  column-gap: 8px;
+}

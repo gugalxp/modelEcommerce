@@ -80,11 +80,7 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
               />
             </div>
           )}
-          {selectedFilters.includes('price') && (
-            <div className='container-filter-input-price'>
-              <Button onClick={openModal}>Filtrar por preço</Button>
-            </div>
-          )}
+
           {selectedFilters.includes('date') && (
             <>
               <div className='container-filter-input-dateStart'>
@@ -106,6 +102,11 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
               </div>
             </>
           )}
+          {selectedFilters.includes('price') && (
+            <div className='container-filter-input-price'>
+              <Button onClick={openModal}>Filtrar por preço</Button>
+            </div>
+          )}
           {selectedFilters.length > 0 && (
             <Button className='button-apply-filter' icon={<FilterOutlined />} onClick={handleFilter}>
               Aplicar Filtros
@@ -113,7 +114,7 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
           )}
         </Space>
         <Modal
-          title="Configurar Preço"
+          title="Filtrar por preço"
           open={modalVisible}
           onOk={handleFilter}
           onCancel={closeModal}

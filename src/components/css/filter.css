@@ -3,7 +3,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
-    gap: 2em;
 }
 
 .container-filter-dropdown-button {
@@ -41,6 +40,6 @@
     background: #020024;
 }
 
-.ant-space-gap-col-small {
-    column-gap: 8px;
+.ant-space-gap-row-small {
+    row-gap: 8px;
 }
