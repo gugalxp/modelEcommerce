@@ -3,12 +3,31 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
+    gap: 10px;
 }
 
-.container-filter-dropdown-button {
-    color: #fff;
-    background: #020024;
+@media (max-width: 767px) { 
+    .container-filter-dropdown-button {
+        color: #fff;
+        background: #020024;
+        height: 3em;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .container-filter {
+        gap: 10px;
+    }
+    
 }
+
+@media (min-width: 768px) { 
+    .container-filter-dropdown-button {
+        color: #fff;
+        background: #020024;
+    }
+}
+
 
 .container-filter-input-nome {
     display: flex;
@@ -43,3 +62,7 @@
 .ant-space-gap-row-small {
     row-gap: 8px;
 }
+
+.ant-space-gap-col-small {
+    column-gap: 8px;
+  }

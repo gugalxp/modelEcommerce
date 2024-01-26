@@ -61,57 +61,60 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
   return (
     <Row justify="center">
       <Col span={100}>
-        <Space className='container-filter'>
-          <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
-            <Button className='container-filter-dropdown-button'>
-              Filtros <DownOutlined />
-            </Button>
-          </Dropdown>
-          {selectedFilters.includes('name') && (
-            <div className='container-filter-input-nome'>
-              <label className='container-filter-input-nome-label' htmlFor="nameFilter">Buscar por Nome:</label>
-              <Input
-                id="nameFilter"
-                name="nameFilter"
-                onInput={handleFilter}
-                placeholder="Filtrar por nome"
-                value={nameFilter}
-                onChange={(e) => setNameFilter(e.target.value)}
-              />
-            </div>
-          )}
+        <Space>
+          <div  className='container-filter'>
 
-          {selectedFilters.includes('date') && (
-            <>
-              <div className='container-filter-input-dateStart'>
-                <label htmlFor="startDateFilter">Data Inicial:</label>
+            <Dropdown overlay={menu} placement="bottomCenter" trigger={['click']}>
+              <Button className='container-filter-dropdown-button'>
+                Filtros <DownOutlined />
+              </Button>
+            </Dropdown>
+            {selectedFilters.includes('name') && (
+              <div className='container-filter-input-nome'>
+                <label className='container-filter-input-nome-label' htmlFor="nameFilter">Buscar por Nome:</label>
                 <Input
-                  id="startDateFilter"
-                  name="startDateFilter"
-                  type="date"
-                  onChange={(e) => setStartDateFilter(e.target.value)} />
+                  id="nameFilter"
+                  name="nameFilter"
+                  onInput={handleFilter}
+                  placeholder="Filtrar por nome"
+                  value={nameFilter}
+                  onChange={(e) => setNameFilter(e.target.value)}
+                />
               </div>
+            )}
 
-              <div className='container-filter-input-endStart' >
-                <label htmlFor="endDateFilter">Data Final:</label>
-                <Input
-                  id="endDateFilter"
-                  name="endDateFilter"
-                  type="date"
-                  onChange={(e) => setEndDateFilter(e.target.value)} />
+            {selectedFilters.includes('date') && (
+              <>
+                <div className='container-filter-input-dateStart'>
+                  <label htmlFor="startDateFilter">Data Inicial:</label>
+                  <Input
+                    id="startDateFilter"
+                    name="startDateFilter"
+                    type="date"
+                    onChange={(e) => setStartDateFilter(e.target.value)} />
+                </div>
+
+                <div className='container-filter-input-endStart' >
+                  <label htmlFor="endDateFilter">Data Final:</label>
+                  <Input
+                    id="endDateFilter"
+                    name="endDateFilter"
+                    type="date"
+                    onChange={(e) => setEndDateFilter(e.target.value)} />
+                </div>
+              </>
+            )}
+            {selectedFilters.includes('price') && (
+              <div className='container-filter-input-price'>
+                <Button onClick={openModal}>Filtrar por preço</Button>
               </div>
-            </>
-          )}
-          {selectedFilters.includes('price') && (
-            <div className='container-filter-input-price'>
-              <Button onClick={openModal}>Filtrar por preço</Button>
-            </div>
-          )}
-          {selectedFilters.length > 0 && (
-            <Button className='button-apply-filter' icon={<FilterOutlined />} onClick={handleFilter}>
-              Aplicar Filtros
-            </Button>
-          )}
+            )}
+            {selectedFilters.length > 0 && (
+              <Button className='button-apply-filter' icon={<FilterOutlined />} onClick={handleFilter}>
+                Aplicar Filtros
+              </Button>
+            )}
+          </div>
         </Space>
         <Modal
           title="Filtrar por preço"
@@ -131,7 +134,7 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
         </Modal>
 
       </Col>
-    </Row>
+    </Row >
   );
 };
 
