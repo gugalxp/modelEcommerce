@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Button, Space, Row, Col, Checkbox, Dropdown, Menu, Modal, Radio } from 'antd';
+import { Input, Button, Space, Row, Col, Checkbox, Dropdown, Menu, Modal } from 'antd';
 import { FilterOutlined, DownOutlined } from '@ant-design/icons';
 import './css/filter.css';
 
@@ -82,7 +82,7 @@ const Filter: React.FC<FilterProps> = ({ onFilter }) => {
           )}
           {selectedFilters.includes('price') && (
             <div className='container-filter-input-price'>
-              <Button onClick={openModal}>Configurar Preço</Button>
+              <Button onClick={openModal}>Filtrar por preço</Button>
             </div>
           )}
           {selectedFilters.includes('date') && (
