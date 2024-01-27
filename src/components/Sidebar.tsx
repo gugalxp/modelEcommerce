@@ -91,13 +91,13 @@ const Sidebar: React.FC<SidebarProps> = ({ setSidebarVisible, sidebarVisible }) 
           </div>
         </Scrollbars>
         {products && products.length > 0 && (
-          <div className="checkout-section">
-            <div className="total-section">
+          <div className="">
+            <div className="">
               <p>Total: $ {calculateTotal()}</p>
             </div>
             <Link to="/checkout">
               <Button
-                className="checkout-button"
+                className=""
               >
                 Completar compra
               </Button>
