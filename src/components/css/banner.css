@@ -11,12 +11,21 @@
 .carousel-banner {
     height: 470px;
     margin: 2em;
-    border: 1px solid rgba(52, 51, 51, 0.204);
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+@media (min-width:678px) {
+
+ .carousel-banner {
+
+   border: 1px solid rgba(52, 51, 51, 0.204);
+ }
+
+}
+ 
 
 .container-content-banner {
     width: 100%;
