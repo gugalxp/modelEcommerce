@@ -1,3 +1,5 @@
+/* Seus estilos existentes ... */
+
 .overlay.active {
   background-color: rgba(33, 33, 33, 0.301);
 }
@@ -87,4 +89,31 @@
 
 .product-name {
   font-size: 14px;
+}
+
+/* Novos estilos para o layout desejado */
+.product-list-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-list {
+  flex-grow: 1;
+}
+
+.total-button-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .total-button-container {
+    padding: 8px;
+  }
 }
