@@ -207,7 +207,7 @@ const Checkout: React.FC = () => {
           <Divider />
           <Row className='container-checkout-value-total' gutter={[16, 16]}>
             <Col span={12}>
-              <Text strong>Total:</Text>
+              <Text style={{ color: '#fff'}} strong>Total:</Text>
             </Col>
             <Col span={12} style={{ textAlign: 'right' }}>
               <Text className='container-checkout-value-total-text' strong>$ {products.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</Text>
@@ -258,7 +258,7 @@ const Checkout: React.FC = () => {
         )}
         {currentStep < steps.length - 1 && (
           <>
-            <Button type="primary" onClick={nextStep}>
+            <Button style={{ color: '#fff', background: '#3498db'}} onClick={nextStep}>
               Próximo
             </Button>
           </>

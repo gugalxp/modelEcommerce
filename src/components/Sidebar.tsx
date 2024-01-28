@@ -89,21 +89,21 @@ const Sidebar: React.FC<SidebarProps> = ({ setSidebarVisible, sidebarVisible }) 
               </div>
             ))}
           </div>
-        </Scrollbars>
-        {products && products.length > 0 && (
-          <div className="">
-            <div className="">
-              <p>Total: $ {calculateTotal()}</p>
+          {products && products.length > 0 && (
+            <div className="checkout-section">
+              <Link to="/checkout">
+                <Button
+                  className="checkout-button"
+                >
+                  Completar compra
+                </Button>
+              </Link>
+              <div className="total-section">
+                <p>Total: $ {calculateTotal()}</p>
+              </div>
             </div>
-            <Link to="/checkout">
-              <Button
-                className=""
-              >
-                Completar compra
-              </Button>
-            </Link>
-          </div>
-        )}
+          )}
+        </Scrollbars>
       </div>
     </>
   );
