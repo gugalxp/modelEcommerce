@@ -67,7 +67,7 @@
   align-items: center;
   width: 100%;
   position: absolute;
-  bottom: 80px;
+  bottom: 5em;
   gap: 1.5em;
 }
 
@@ -91,7 +91,6 @@
   font-size: 14px;
 }
 
-/* Novos estilos para o layout desejado */
 .product-list-container {
   display: flex;
   flex-direction: column;
@@ -102,18 +101,12 @@
   flex-grow: 1;
 }
 
-.total-button-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 16px;
-  background-color: #fff;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
 @media (max-width: 767px) {
   .total-button-container {
     padding: 8px;
+  }
+
+  .checkout-section {
+    bottom: 7em;
   }
 }
