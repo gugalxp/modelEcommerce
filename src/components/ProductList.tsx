@@ -99,10 +99,7 @@ const ProductList: React.FC = () => {
               <Button
                 className="product-card__add-button"
                 onClick={() => handleAddToCart(product)}
-                style={{
-                  boxShadow: '0 0 10px #020024',
-                  animation: '0.5s infinite alternate',
-                }}
+ 
               >
                 Adicionar ao carrinho
               </Button>
