@@ -63,13 +63,13 @@ const ProductList: React.FC = () => {
   return (
     <>
       <div>
-        <h1 data-aos="zoom-in" data-aos-duration="1700" className="header">
+        <h1 className="header">
           <ShoppingOutlined style={{ marginRight: '8px', fontSize: '35px' }} />
           Produtos
         </h1>
       </div>
       <Filter onFilter={handleFilter} />
-      <div className="product-list" data-aos="fade-up" data-aos-duration="1700">
+      <div className="product-list" data-aos="fade-up" data-aos-duration="500">
         {filteredProducts && filteredProducts.map((product) => (
           <Card key={product.id} className="product-card ">
             <div className="product-card__image-container">
